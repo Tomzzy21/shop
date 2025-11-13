@@ -8,7 +8,7 @@ const AboutUs: React.FC = () => {
           {/* Left Column: Image */}
           <div>
             <img
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80"
+              src="/group-photo.jpg"
               alt="The Bookkeeping Practice NG Team"
               className="rounded-2xl shadow-2xl w-full h-full object-cover aspect-[4/3]"
             />

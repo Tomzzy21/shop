@@ -30,15 +30,15 @@ const processData = [
 ];
 
 // Reusable component for the process cards, styled as tags
-const ProcessCard: React.FC<{ number: string; title: string; description: string }> = ({ number, title, description }) => (
-  <div className="relative bg-white p-6 rounded-2xl shadow-lg w-full max-w-sm mx-auto md:mx-0 transform hover:-translate-y-2 transition-transform duration-300 border border-gray-100">
+const ProcessCard: React.FC<{ number: string; title: string; description: string; }> = ({ number, title, description }) => (
+  <div className="relative bg-white p-6 rounded-2xl shadow-lg w-full max-w-sm transform hover:-translate-y-2 transition-transform duration-300 border border-gray-100">
     {/* Tag hole */}
     <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
       <div className="w-6 h-6 bg-gray-50 border-2 border-white rounded-full flex items-center justify-center">
         <div className="w-3 h-3 bg-gray-500 rounded-full shadow-inner"></div>
       </div>
     </div>
-    <div className="pt-6">
+    <div className="pt-4">
       <p className="text-gray-400 font-bold text-lg mb-2">{number}</p>
       <h3 className="text-xl font-bold text-gray-800 mb-3">{title}</h3>
       <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
@@ -96,69 +96,34 @@ const AnimatedCardWrapper: React.FC<{ children: React.ReactNode; delay: number }
 };
 
 const Services: React.FC = () => {
-    // Defines the visual order of cards for the zig-zag layout with 5 items
-    const displayOrder = [0, 1, 2, 3, 4];
-
     return (
-        <section className="py-12 md:py-24 font-poppins bg-white" style={{
-            backgroundImage: `
-                linear-gradient(rgba(237, 242, 247, 0.8) 0.5px, transparent 0.5px),
-                linear-gradient(90deg, rgba(237, 242, 247, 0.8) 0.5px, transparent 0.5px)
-            `,
-            backgroundSize: '20px 20px',
-        }}>
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Header Section */}
-                <div className="max-w-xl mb-12 md:mb-24 relative px-4">
-                    <span className="inline-block py-1 px-4 text-sm font-semibold text-gray-700 bg-white border border-gray-300 rounded-full mb-4">
-                        Our Services
-                    </span>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 md:mb-5 leading-tight">
-                        Everything You Need for Financial Peace of Mind
-                    </h2>
-                    <p className="text-gray-500 leading-relaxed">
-                        We combine modern technology with expert human bookkeepers to deliver a service you can rely on.
+        <section className="py-16 overflow-x-auto">
+            <div className="container mx-auto px-4 min-w-max">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl font-bold text-gray-900 mb-4">How We Work</h2>
+                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Our streamlined process ensures your books are always accurate and up-to-date.
                     </p>
-                    <div className="absolute top-4 md:top-8 -right-4 md:-right-8 transform hidden lg:block">
-                        <SquigglyArrowIcon />
-                    </div>
                 </div>
 
-                {/* Process Steps Section */}
-                <div className="relative max-w-6xl mx-auto px-4">
-                    {/* SVG Connecting Line for Desktop */}
-                    <div className="absolute top-0 left-0 w-full h-full -z-1 hidden md:block" aria-hidden="true">
-                        <svg width="100%" height="100%" viewBox="0 0 800 1000" preserveAspectRatio="none">
-                            <path
-                                d="M 700 50 C 700 100 700 100 700 150 C 750 250 50 300 150 400 C 250 500 550 450 650 550 C 750 650 50 600 150 750 C 250 900 300 900 400 920"
-                                fill="none"
-                                stroke="#CBD5E0"
-                                strokeWidth={2}
-                                strokeDasharray="8 8"
-                            />
-                        </svg>
+                <div className="relative w-full">
+                    {/* Process cards - Maintain fixed layout */}
+                    <div className="flex justify-center gap-8 w-full overflow-visible">
+                        {processData.map((step, index) => (
+                            <div key={step.number} className="w-64 flex-shrink-0">
+                                <AnimatedCardWrapper delay={index * 0.2}>
+                                    <ProcessCard {...step} />
+                                </AnimatedCardWrapper>
+                            </div>
+                        ))}
                     </div>
 
-                    {/* Cards Grid - Mobile First */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 lg:gap-20">
-                        {displayOrder.map((dataIndex, index) => {
-                            const data = processData[dataIndex];
-                            return (
-                                <div 
-                                    key={dataIndex} 
-                                    className={`${index % 2 === 0 ? 'md:mt-0 lg:mt-20' : ''} ${index === displayOrder.length - 1 ? 'md:col-span-2' : ''}`}
-                                >
-                                    <AnimatedCardWrapper delay={index * 200}>
-                                        <ProcessCard {...data} />
-                                    </AnimatedCardWrapper>
-                                </div>
-                            );
-                        })}
-                    </div>
+                    {/* Decorative elements */}
+                    <div className="absolute top-1/4 left-0 right-0 h-1 bg-gray-200 -z-10"></div>
 
                     {/* "Ready to be delivered!" Text */}
-                    <div className="hidden md:block absolute bottom-[-2rem] right-[5%] lg:right-[15%] transform -rotate-6">
-                        <p className="text-base md:text-lg font-semibold text-gray-600">
+                    <div className="absolute bottom-[-1rem] right-[10rem] transform -rotate-6">
+                        <p className="text-lg font-semibold text-gray-600">
                             · Ready to be delivered!
                         </p>
                     </div>

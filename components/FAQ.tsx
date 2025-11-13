@@ -75,19 +75,23 @@ const FAQ: React.FC = () => {
   };
   
   return (
-    <section className="py-24 font-poppins bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 font-poppins bg-white overflow-x-auto">
+      <div className="container mx-auto px-4 min-w-[1000px]">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#0A2640] mb-6">Have a Question?</h2>
+          <h2 className="text-5xl font-bold text-[#0A2640] mb-6">Have a Question?</h2>
           <p className="text-gray-600 leading-relaxed text-lg">
             Get instant answers from our FAQ bot. Just select a topic to get started.
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-2xl shadow-gray-300/40 border border-gray-200/80 overflow-hidden">
+        <div className="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl shadow-gray-300/40 border border-gray-200/80 overflow-hidden">
           {/* Chat log */}
-          <div ref={chatLogRef} className="h-96 p-6 overflow-y-auto bg-gray-50/50">
-             {messages.map((msg) => (
+          <div 
+            ref={chatLogRef} 
+            className="h-96 p-6 overflow-y-auto bg-gray-50/50"
+            style={{ scrollBehavior: 'smooth' }}
+          >
+            {messages.map((msg) => (
               <ChatBubble key={msg.id} message={msg} />
             ))}
           </div>
@@ -101,12 +105,13 @@ const FAQ: React.FC = () => {
                   key={index}
                   onClick={() => handleQuestionClick(item.question, item.answer)}
                   disabled={askedQuestions.has(item.question)}
-                  className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 border
+                  className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 border whitespace-nowrap overflow-hidden text-ellipsis
                     ${askedQuestions.has(item.question) 
                       ? 'bg-gray-200 text-gray-400 cursor-not-allowed border-gray-200' 
                       : 'bg-white text-[#0A2640] border-gray-300 hover:bg-gray-100 hover:border-gray-400'
                     }`
                   }
+                  title={item.question}
                 >
                   {item.question}
                 </button>

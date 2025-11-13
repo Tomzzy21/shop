@@ -96,21 +96,21 @@ const ProblemSolutionPair: React.FC<ProblemSolutionPairProps> = ({ problem, solu
   );
 
   return (
-    <div ref={ref} className="relative flex flex-col md:flex-row items-start justify-center gap-x-32 gap-y-16">
-      {/* Connecting Line SVG */}
-      <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-56 hidden md:block z-0 transition-opacity duration-1000 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div ref={ref} className="relative flex flex-col lg:flex-row items-start justify-center gap-x-8 xl:gap-x-32 gap-y-8 lg:gap-y-16 w-full">
+      {/* Connecting Line SVG - Only show on larger screens */}
+      <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 lg:w-96 h-40 lg:h-56 hidden lg:block z-0 transition-opacity duration-1000 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
         {SVGLine}
       </div>
 
       {/* Problem Column */}
-      <div className={`flex flex-col items-start gap-4 z-10 w-full max-w-sm md:w-auto mx-auto fade-in-on-scroll ${isVisible ? 'is-visible' : ''}`}>
+      <div className={`flex flex-col items-start gap-4 z-10 w-full max-w-sm lg:max-w-md mx-auto lg:mx-0 fade-in-on-scroll ${isVisible ? 'is-visible' : ''}`}>
         <ProblemHeader />
         <InfoCard title={problem.title} text={problem.text} />
       </div>
 
       {/* Solution Column */}
       <div
-        className={`flex flex-col items-end gap-4 z-10 w-full max-w-sm md:w-auto mx-auto ${solutionMargin} fade-in-on-scroll ${isVisible ? 'is-visible' : ''}`}
+        className={`flex flex-col items-end lg:items-start gap-4 z-10 w-full max-w-sm lg:max-w-md mx-auto lg:mx-0 lg:mt-48 fade-in-on-scroll ${isVisible ? 'is-visible' : ''}`}
         style={{ transitionDelay: '400ms' }}
       >
         <InfoCard title={solution.title} text={solution.text} />
@@ -122,21 +122,22 @@ const ProblemSolutionPair: React.FC<ProblemSolutionPairProps> = ({ problem, solu
 
 const ProblemSolution: React.FC = () => {
   return (
-    <section className="py-24 font-poppins bg-gray-50/50 overflow-hidden">
+    <section className="py-16 lg:py-24 font-poppins bg-gray-50/50 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="absolute top-0 right-8 hidden md:block">
-            <span className="bg-[#D2E862]/80 text-gray-800 text-sm font-semibold px-4 py-1.5 rounded-full">6 Section</span>
+        <div className="absolute top-0 right-4 lg:right-8">
+            <span className="bg-[#D2E862]/80 text-gray-800 text-xs lg:text-sm font-semibold px-3 lg:px-4 py-1 lg:py-1.5 rounded-full">6 Section</span>
         </div>
         
-        <h2 className="text-4xl lg:text-5xl font-bold text-center text-[#0A2640] mb-24">Problem and Solution</h2>
+        <h2 className="text-3xl lg:text-5xl font-bold text-center text-[#0A2640] mb-12 lg:mb-24">Problem and Solution</h2>
 
-        <div className="flex flex-col gap-y-16 md:gap-y-0">
+        <div className="flex flex-col gap-y-12 lg:gap-y-16">
           {problemSolutionData.map((pair, index) => (
-            <ProblemSolutionPair 
-              key={index}
-              problem={pair.problem}
-              solution={pair.solution}
-            />
+            <div key={index} className="w-full">
+              <ProblemSolutionPair 
+                problem={pair.problem}
+                solution={pair.solution}
+              />
+            </div>
           ))}
         </div>
       </div>
