@@ -75,11 +75,11 @@ const FAQ: React.FC = () => {
   };
   
   return (
-    <section className="py-16 font-poppins bg-white overflow-x-auto">
-      <div className="container mx-auto px-4 min-w-[1000px]">
+    <section className="py-8 md:py-16 font-poppins bg-white">
+      <div className="container mx-auto px-4 w-full">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-5xl font-bold text-[#0A2640] mb-6">Have a Question?</h2>
-          <p className="text-gray-600 leading-relaxed text-lg">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#0A2640] mb-4 md:mb-6">Have a Question?</h2>
+          <p className="text-gray-600 leading-relaxed text-base md:text-lg">
             Get instant answers from our FAQ bot. Just select a topic to get started.
           </p>
         </div>
@@ -88,7 +88,7 @@ const FAQ: React.FC = () => {
           {/* Chat log */}
           <div 
             ref={chatLogRef} 
-            className="h-96 p-6 overflow-y-auto bg-gray-50/50"
+            className="h-80 sm:h-96 p-4 sm:p-6 overflow-y-auto bg-gray-50/50"
             style={{ scrollBehavior: 'smooth' }}
           >
             {messages.map((msg) => (
@@ -99,13 +99,13 @@ const FAQ: React.FC = () => {
           {/* Question selection */}
           <div className="p-6 border-t border-gray-200">
             <h3 className="text-sm font-semibold text-gray-500 mb-4 text-center">Select a question:</h3>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {faqData.map((item, index) => (
                 <button
                   key={index}
                   onClick={() => handleQuestionClick(item.question, item.answer)}
                   disabled={askedQuestions.has(item.question)}
-                  className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 border whitespace-nowrap overflow-hidden text-ellipsis
+                  className={`px-3 py-2 text-xs sm:text-sm font-semibold rounded-full transition-all duration-300 border overflow-hidden text-ellipsis
                     ${askedQuestions.has(item.question) 
                       ? 'bg-gray-200 text-gray-400 cursor-not-allowed border-gray-200' 
                       : 'bg-white text-[#0A2640] border-gray-300 hover:bg-gray-100 hover:border-gray-400'

@@ -31,16 +31,14 @@ const processData = [
 
 // Reusable component for the process cards, styled as tags
 const ProcessCard: React.FC<{ number: string; title: string; description: string; }> = ({ number, title, description }) => (
-  <div className="relative bg-white p-6 rounded-2xl shadow-lg w-full max-w-sm transform hover:-translate-y-2 transition-transform duration-300 border border-gray-100">
-    {/* Tag hole */}
-    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-      <div className="w-6 h-6 bg-gray-50 border-2 border-white rounded-full flex items-center justify-center">
-        <div className="w-3 h-3 bg-gray-500 rounded-full shadow-inner"></div>
+  <div className="relative bg-white p-6 rounded-2xl shadow-lg w-64 sm:w-72 flex-shrink-0 transform hover:-translate-y-2 transition-transform duration-300 border border-gray-100">
+    <div className="space-y-4">
+      <div className="flex items-center">
+        <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-3">
+          <span className="text-gray-600 font-bold">{number}</span>
+        </div>
       </div>
-    </div>
-    <div className="pt-4">
-      <p className="text-gray-400 font-bold text-lg mb-2">{number}</p>
-      <h3 className="text-xl font-bold text-gray-800 mb-3">{title}</h3>
+      <h3 className="text-lg font-bold text-gray-800">{title}</h3>
       <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
     </div>
   </div>
@@ -97,34 +95,35 @@ const AnimatedCardWrapper: React.FC<{ children: React.ReactNode; delay: number }
 
 const Services: React.FC = () => {
     return (
-        <section className="py-16 overflow-x-auto">
-            <div className="container mx-auto px-4 min-w-max">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">How We Work</h2>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <section className="py-12 sm:py-16">
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-12 sm:mb-16">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">How We Work</h2>
+                    <p className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto">
                         Our streamlined process ensures your books are always accurate and up-to-date.
                     </p>
                 </div>
 
                 <div className="relative w-full">
-                    {/* Process cards - Maintain fixed layout */}
-                    <div className="flex justify-center gap-8 w-full overflow-visible">
+                    {/* Process cards with horizontal scrolling */}
+                    <div className="relative">
+                        <div className="overflow-x-auto pb-6 -mx-4 px-4">
+                            <div className="flex space-x-6 w-max min-w-full">
                         {processData.map((step, index) => (
-                            <div key={step.number} className="w-64 flex-shrink-0">
+                            <div key={step.number} className="flex-shrink-0">
                                 <AnimatedCardWrapper delay={index * 0.2}>
                                     <ProcessCard {...step} />
                                 </AnimatedCardWrapper>
                             </div>
                         ))}
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Decorative elements */}
-                    <div className="absolute top-1/4 left-0 right-0 h-1 bg-gray-200 -z-10"></div>
-
                     {/* "Ready to be delivered!" Text */}
-                    <div className="absolute bottom-[-1rem] right-[10rem] transform -rotate-6">
-                        <p className="text-lg font-semibold text-gray-600">
-                            · Ready to be delivered!
+                    <div className="text-center mt-8">
+                        <p className="text-base sm:text-lg font-semibold text-gray-600">
+                            · Ready to be delivered! ·
                         </p>
                     </div>
                 </div>

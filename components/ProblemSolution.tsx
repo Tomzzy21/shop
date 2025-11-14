@@ -124,10 +124,6 @@ const ProblemSolution: React.FC = () => {
   return (
     <section className="py-16 lg:py-24 font-poppins bg-gray-50/50 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="absolute top-0 right-4 lg:right-8">
-            <span className="bg-[#D2E862]/80 text-gray-800 text-xs lg:text-sm font-semibold px-3 lg:px-4 py-1 lg:py-1.5 rounded-full">6 Section</span>
-        </div>
-        
         <h2 className="text-3xl lg:text-5xl font-bold text-center text-[#0A2640] mb-12 lg:mb-24">Problem and Solution</h2>
 
         <div className="flex flex-col gap-y-12 lg:gap-y-16">
