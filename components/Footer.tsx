@@ -1,5 +1,5 @@
 import React from 'react';
-import { TwitterIcon, FacebookIcon, LinkedInIcon } from './Icons';
+import { InstagramIcon } from './Icons';
 
 const Footer: React.FC = () => {
   return (
@@ -45,16 +45,16 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Social Icons */}
-          <div className="flex items-center gap-5">
-            <a href="#" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors">
-              <TwitterIcon className="w-6 h-6" />
-            </a>
-            <a href="#" aria-label="Facebook" className="text-gray-400 hover:text-white transition-colors">
-              <FacebookIcon className="w-6 h-6" />
-            </a>
-            <a href="#" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors">
-              <LinkedInIcon className="w-6 h-6" />
+          {/* Instagram Icon */}
+          <div className="flex items-center">
+            <a 
+              href="https://www.instagram.com/thebookkeepingpractice.ng?igsh=MXY3NW91bTZpdW14NA==" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="Instagram" 
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <InstagramIcon className="w-6 h-6" />
             </a>
           </div>
         </div>
