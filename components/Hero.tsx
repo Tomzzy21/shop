@@ -184,7 +184,9 @@ const Hero: React.FC = () => {
         </p>
         <div className="mt-10 flex justify-center">
           <a 
-            href="#" 
+            href="https://calendly.com/thebookkeepingpracticeng?fbclid=PAZnRzaAOFyFVleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQIY2FsbHNpdGUCMTUAAad9nqNW59FWWXqZJe6p9GIC4-EGB-Je2iGOS4ed_m2L2n9TXe03jGsCL9kNsA_aem_FYDmnNA2TE6RpbOVasdCkQ" 
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-8 py-4 text-lg font-bold text-white bg-[#0A2640] rounded-full hover:bg-gray-800 transition-all duration-300 shadow-lg transform hover:scale-105 relative z-20"
           >
             Get a Free Consultation

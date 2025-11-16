@@ -3,20 +3,44 @@ import React, { useState, useEffect, useRef } from 'react';
 // Data for the problem-solution pairs
 const problemSolutionData = [
   {
-    problem: { title: 'Complex Analytics', text: 'Users struggled to understand complex credit score analytics and insights.' },
-    solution: { title: 'Simplified Insights', text: 'We simplified data presentation, making credit information clear and easily understandable.' }
+    problem: { 
+      title: 'Financial Disorganization', 
+      text: 'Many businesses struggle with disorganized financial records, making it difficult to track expenses, revenue, and overall financial health.' 
+    },
+    solution: { 
+      title: 'Organized Bookkeeping', 
+      text: 'We implement systematic bookkeeping processes that keep your financial records accurate, up-to-date, and easily accessible for better decision-making.' 
+    }
   },
   {
-    problem: { title: 'Disjointed Communication', text: 'Teams were using multiple apps for communication, leading to missed messages and confusion.' },
-    solution: { title: 'Centralized Collaboration', text: 'Our platform provides a single, unified hub for all team communication and collaboration.' }
+    problem: { 
+      title: 'Tax Compliance Headaches', 
+      text: 'Staying compliant with ever-changing tax regulations can be overwhelming and time-consuming for business owners.' 
+    },
+    solution: { 
+      title: 'Expert Tax Guidance', 
+      text: 'Our team stays current with tax laws to ensure your business remains compliant while maximizing available deductions and credits.' 
+    }
   },
   {
-    problem: { title: 'Manual Invoicing', text: 'Creating and tracking invoices manually was time-consuming and prone to human error.' },
-    solution: { title: 'Automated Billing', text: 'We introduced an automated billing system that generates and sends invoices seamlessly.' }
+    problem: { 
+      title: 'Cash Flow Uncertainty', 
+      text: 'Many businesses struggle with unpredictable cash flow, making it challenging to plan for growth and manage expenses.' 
+    },
+    solution: { 
+      title: 'Cash Flow Management', 
+      text: 'We provide detailed cash flow analysis and forecasting to help you maintain healthy finances and make informed business decisions.' 
+    }
   },
   {
-    problem: { title: 'Inefficient Onboarding', text: 'New employees faced a steep learning curve with a scattered and inconsistent onboarding process.' },
-    solution: { title: 'Streamlined Workflows', text: 'A guided, step-by-step onboarding workflow ensures new hires are productive from day one.' }
+    problem: { 
+      title: 'Time-Consuming Processes', 
+      text: 'Manual data entry and reconciliation take valuable time away from focusing on core business activities.' 
+    },
+    solution: { 
+      title: 'Efficient Automation', 
+      text: 'We leverage modern accounting software to automate repetitive tasks, saving you time and reducing the risk of human error.' 
+    }
   }
 ];
 

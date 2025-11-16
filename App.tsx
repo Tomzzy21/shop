@@ -18,6 +18,7 @@ import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import { DoodleScribbleIcon, DoodlePlusSignsIcon, DoodleCircleArrowIcon } from './components/Icons';
+import WhatsAppButton from './components/WhatsAppButton';
 
 const App: React.FC = () => {
   return (
@@ -106,6 +107,7 @@ const App: React.FC = () => {
       <section id="testimonials"><Testimonials /></section>
       <section id="faq"><FAQ /></section>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
